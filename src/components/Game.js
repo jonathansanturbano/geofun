@@ -3,6 +3,8 @@ import Form from "./Form";
 import Flag from "./Flag";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { IoIosCloseCircle } from "react-icons/io";
+import { FaCity } from "react-icons/fa";
+import { BsFillPeopleFill } from "react-icons/bs";
 import { Alert, Button } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 
@@ -56,14 +58,16 @@ const Game = ({
             >
               <Alert
                 variant="primary"
-                dismissible
                 onClose={() => setShowExplanation(false)}
-                className="absolute bottom-0 bg-white w-full left-0"
+                className="absolute bottom-0 bg-white w-full left-0 rounded-md"
               >
-                <Alert.Heading>{country.name.toUpperCase()}</Alert.Heading>
-                <p>{country.capital}</p>
-                <p>{country.population}</p>
-                <Button onClick={() => handleClick()}>Close</Button>
+                <Alert.Heading className="underline">{country.name.toUpperCase()}</Alert.Heading>
+                <div className="flex justify-center">
+                  <FaCity className="mr-2"/>
+                  <p>{country.capital}</p>
+                </div>
+                <p>Population: {country.population}</p>
+                <Button onClick={() => handleClick()} className="font-bold animate-pulse pt-3">>></Button>
               </Alert>
             </CSSTransition>
           )}
